@@ -1,2 +1,2 @@
 # Friendship_Quiz
-Prohect in Node.js-Express,-JavaScript
+Project in Node.js-Express,-JavaScript
