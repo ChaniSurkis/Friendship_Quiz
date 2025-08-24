@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="../Css/addUser.css" />
+  <title>הרשמה</title>
+</head>
+<body>
+  <div class="container">
+    <h1>WELCOME TO OUR FRIENDSHIP QUIZ</h1>
+
+    <div id="errorContainer" class="error-message" style="display: none;"></div>
+    <div id="messageBox" class="info-message" style="display: none;">ההרשמה הצליחה!</div>
+
+    <form id="signupForm" enctype="multipart/form-data">
+      <label for="userName">שם משתמש:</label>
+      <input type="text" id="userName" name="userName" required />
+
+      <label for="email">אימייל:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">סיסמה:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="fileInput">בחר תמונה:</label>
+      <input type="file" id="fileInput" name="file" accept="image/*" required />
+
+      <button type="submit">שלח</button>
+    </form>
+  </div>
+
+  <script src="../js/addUser.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FDF6F0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* שינוי חשוב */
+  height: 100vh;
+  direction: rtl;
+  position: relative;
+}
+
+#container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin-top: 60px; /* רווח מראש הדף */
+}
+
+h1 {
+  font-size: 3rem;
+  color: #FF8C42; /* צבע חם */
+  margin-bottom: 3rem;
+}
+
+/* כפתורי טקסט ראשיים */
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem; /* רווח בין הכפתורים */
+  align-items: center; /* כדי ליישר את הכפתורים לאמצע */
+}
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.box:hover {
+  color: #3A3D99; /* גוון סגול עדין */
+}
+
+.box i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.logout-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 0.9rem;
+  color: #777;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.logout-box:hover {
+  color: #000;
+}
+
+.small {
+  font-size: 1rem;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.small i {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}

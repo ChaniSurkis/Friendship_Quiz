@@ -1,0 +1,123 @@
+/* openingScreen.css - עיצוב מעניין עם שדרוגים */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap');
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #FDF6F0;
+  font-family: 'Rubik', sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  direction: rtl;
+  background-image: radial-gradient(circle at 20% 30%, #FFECD1 1%, transparent 30%),
+                    radial-gradient(circle at 80% 60%, #E0F7FA 1%, transparent 30%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 5rem;
+  margin-bottom: 0.2em;
+  font-weight: 900;
+  color: #3A3D99;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* transform: rotate(-2deg); */
+  letter-spacing: 1px;
+  /* animation: curveTitle 2s ease forwards; */
+}
+
+@keyframes curveTitle {
+  0% {
+    transform: scale(1) rotate(-2deg) translateY(0);
+  }
+  100% {
+    transform: scale(1.02) rotate(-2deg) translateY(-5px);
+  }
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 2.5em;
+  color: #555;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+button {
+  flex: 1 1 160px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: white;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+#signupButton {
+  background-color: #FF9F68;
+}
+
+#signupButton:hover {
+  background-color: #ff8443;
+}
+
+#loginButton {
+  background-color: #A48AD4;
+}
+
+#loginButton:hover {
+  background-color: #8d72c2;
+}
+
+i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 460px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+

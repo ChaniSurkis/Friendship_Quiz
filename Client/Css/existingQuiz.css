@@ -1,0 +1,73 @@
+/* existingQuiz.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  background-color: #FDF6F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  direction: rtl;
+}
+
+.container {
+  background-color: white;
+  padding: 32px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #3A3D99;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #6B6E97;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.button-container button {
+  background-color: #FF9F68;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button-container button:hover {
+  background-color: #ff8247;
+}
+
+/* אם תרצה, אפשר להוסיף כפתור משני בצבע סגול */
+
+#goBack {
+  background-color: #A48AD4;
+}
+
+#goBack:hover {
+  background-color: #8b72c0;
+}

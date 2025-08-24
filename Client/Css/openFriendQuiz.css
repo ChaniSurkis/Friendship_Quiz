@@ -1,0 +1,84 @@
+body {
+font-family: Arial, sans-serif;
+      background-color: #FDF6F0;
+    text-align: center;
+}
+quiz-container {
+  background-color: rgb(253, 246, 240);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    position: relative; /* נוסיף מיקום יחסי לקונטיינר */
+}
+/* .quiz-container2 {
+    background-color: rgb(193, 22, 22);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin-bottom: 0px auto;
+    padding-top: 20px;
+    
+} */
+
+
+h2 {
+  color: #a79fe5;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.answer {
+   background-color: #ededed; /* כפתורי תשובות כתומים */
+    color: rgb(198, 87, 7); /* טקסט לבן על רקע כתום */
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+}
+
+.answer input {
+     margin-right: 10px;
+      accent-color: #A48AD4; 
+}
+
+button {
+    background-color: #445ce3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+  background-color: #e87638;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.quiz-container button:nth-of-type(2) { /* הלחצן "שנה שאלה" */
+    position: absolute; /* מיקום אבסולוטי */
+    top: 30px; /* מרחק מלמעלה */
+    right: 60px; /* מרחק מימין */
+    margin-top: 0; /* ביטול מרווח עליון */
+    background-color: #FF9F68; 
+}
+
+
+/* .changeQuestion{
+    background-color: crimson;
+    padding: 7px 15px;
+} */

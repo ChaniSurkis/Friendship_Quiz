@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap');
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #FDF6F0;
+  font-family: 'Rubik', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: right;
+  direction: rtl;
+  background-image: radial-gradient(circle at 20% 30%, #FFECD1 1%, transparent 30%),
+                    radial-gradient(circle at 80% 60%, #E0F7FA 1%, transparent 30%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #3A3D99;
+  font-weight: 800;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: #A48AD4;
+  outline: none;
+}
+
+button {
+  margin-top: 2rem;
+  width: 100%;
+  background-color: #FF9F68;
+  color: white;
+  font-weight: bold;
+  padding: 14px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+button:hover {
+  background-color: #ff8443;
+}
+
+#errorContainer {
+  color: red;
+  text-align: center;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+#messageBox {
+  display: none;
+  color: white;
+  background-color: #A48AD4;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+.toast-message {
+  position: fixed;
+  top: -100px; /* מתחיל מחוץ למסך */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  min-width: 250px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.toast-message.success {
+  background-color: #d1fae5; /* ירקרק עדין */
+  color: #065f46;
+}
+
+.toast-message.error {
+  background-color: #fee2e2; /* אדום עדין */
+  color: #991b1b;
+}
+
+.toast-message.show {
+  top: 20px; /* נכנס למסך */
+  opacity: 1;
+}

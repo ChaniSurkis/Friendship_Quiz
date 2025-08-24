@@ -1,0 +1,104 @@
+<!-- signup.html
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../Css/signup.css">
+</head>
+<body>
+
+
+    <h2>הרשמה</h2>
+    <form id="signupForm">
+        <h1>NICE TO MEET YOU</h1>
+        <label for="email">כתובת אימייל:</label>
+        <input type="email" id="email" required placeholder="הזן אימייל">
+
+        <label for="password">סיסמה:</label>
+        <input type="password" id="password" required placeholder="הזן סיסמה">
+
+        <button type="submit">היכנס</button>
+    </form>
+
+    <script src="../js/signup.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טופס הרשמה</title>
+    <link rel="stylesheet" href="../Css/chooseUpdate.css">
+</head>
+
+<body>
+    <form id="signupForm"> <!-- השתנה מ-div ל-form -->
+        <h1>כניסה</h1>
+        <label for="email">אימייל:</label>
+        <input type="email" id="email" placeholder="הכנס את האימייל שלך" required>
+
+        <label for="password">סיסמה:</label>
+        <input type="password" id="password" placeholder="הכנס את הסיסמה שלך" required>
+
+        <!-- כפתור "שכחת סיסמא?" עם ריווח וסגנון למרכז -->
+        <div style="text-align: center; margin-top: 10px;">
+            <a href="#" onclick="sendPassword()"
+                style="color: rgb(226, 131, 7); text-decoration: underline; font-size: 16px;">שכחת סיסמא?</a>
+        </div>
+
+        <button id="signupButton" type="submit">הכנס</button> <!-- הכפתור כאן בסדר גמור -->
+    </form> <!-- סגור את תגית ה-form -->
+
+    <!-- חלונית מודאלית לעדכון פרטים -->
+<div id="updateModal" class="modal" style="display: none;">
+
+
+        <div class="modal-content">
+            <h2> האם תרצה לעדכן את הפרופיל<br> ?שלך</h2>
+            <button id="yesUpdate">עדכון הפרופיל</button>
+            <button id="noUpdate">המשך</button>
+        </div>
+    </div>
+    <div id="userProfileUpdateModal" class="user-update-modal" style="display:none;">
+        <!-- <div id="messageBox" style="display: none;"></div> -->
+
+        <div class="user-update-modal-content">
+            <span class="modal-close-button" onclick="closeModal()">&times;</span>
+            <h2 class="user-update-modal-header">עדכון פרופיל</h2>
+            <div id="messageBox" style="display:none;"></div>
+
+            <form id="updateProfileForm">
+                <label for="updateUserName">שם משתמש:</label>
+                <input type="text" id="updateUserName" name="updateUserName" class="update-modal-input" required>
+                <label for="updateEmail">אימייל:</label>
+                <input type="email" id="updateEmail" name="updateEmail" class="update-modal-input" required>
+                <label for="updatePassword">סיסמה:</label>
+                <input type="text" id="updatePassword" name="updatePassword" class="update-modal-input">
+                <br>
+                <button type="submit" class="update-modal-button" onclick="updateDetails()">שמור שינויים</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("42KutmHlIuh4shhvK");
+        })();
+    </script>
+    <div id="questionList"></div>
+   
+
+
+    <script src="../js/signup.js"></script>
+</body>
+
+</html>
