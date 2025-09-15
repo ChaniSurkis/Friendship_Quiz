@@ -13,9 +13,7 @@ const getQuestions=async () => {
       
     }
 };
-
 const addQuestion = async (newQuestion) => {
-    console.log("addQuestion");
     try {
         let nameValues = "";
         let values = "";

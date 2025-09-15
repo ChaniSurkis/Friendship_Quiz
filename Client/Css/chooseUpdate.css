@@ -83,15 +83,15 @@ a {
 
 /* חלון מודאלי */
 .modal {
-  display: flex; /* במקום display: none/flex כפול */
-  position: fixed; /* קבוע על המסך כולו */
-  inset: 0; /* מקביל ל-top:0; right:0; bottom:0; left:0 */
-  background-color: rgba(0, 0, 0, 0.4);
-  justify-content: center; /* ממרכז אופקי */
-  align-items: center;     /* ממרכז אנכי */
-  padding: 40px 20px;
+  display: flex;
+  position: fixed;
+  /* inset: 0; מכסה את כל המסך */
+  background-color: rgba(0, 0, 0, 0.6); /* השחרה חזקה יותר */
+  justify-content: center;
+  align-items: center;
   z-index: 999;
 }
+/* אם אתה מסיר את inset: 0; תוכל להשתמש ב-top, right, bottom, left */
 
 .modal-content {
   background-color: white;

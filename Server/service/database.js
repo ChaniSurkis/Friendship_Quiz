@@ -6,7 +6,7 @@ const config = {
     user:'surkis',
     password:'surkis6252',
     database: 'FRIEND_SHIP1',
-   // server:'DESKTOP-LEGBA99\\SQLEXPRESS', // ודאי שזה השם הנכון של ה-Instance
+  
   server:'127.0.0.1',
    
     port: 1433, 
@@ -28,7 +28,7 @@ const connectToDatabase = async () => {
         return pool;
         
     } catch (err) {
-       // console.error('Database connection failed! Error:', err);
+     
        console.error('Database connection failed! Error:', err.message || err);
 
         throw err;

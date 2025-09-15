@@ -1,3 +1,4 @@
+
 const container = document.getElementById('container');
 // הוספת כותרת מעל הכפתורים
 const title = document.createElement('h1');
@@ -59,10 +60,10 @@ function createBox(iconClass, text, additionalClass = '') {
 
 // פונקציה לבדוק אם קיים שאלון
 async function isQuizExist() {
-    const currentUser = localStorage.getItem('userId');
-
+    const u=getUserFromToken();
+    console.log(u);
     try {
-        const check = await fetch(`http://localhost:3000/QuestionAnswers/${currentUser}`, {
+        const check = await fetch(`http://localhost:3000/QuestionAnswers/${u.id}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -73,7 +74,7 @@ async function isQuizExist() {
 
         const checkData = await check.json();
 
-        if (checkData[0].length !== 0) {
+        if (checkData.length !== 0) {
             window.location.href = "existingQuiz.html";
         } else {
             window.location.href = "createQuiz.html";

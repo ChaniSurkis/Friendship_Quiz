@@ -1,5 +1,6 @@
 
 
+
 const back = document.getElementById("goBack");
 back.addEventListener("click", func1);
 
@@ -17,11 +18,10 @@ function deleteFunc(){
 
 // פונקציה למחיקת כל התשובות עבור משתמש מסוים
 async function deleteAllAnswers() {
-    // קבלת ה-USERID מ-localStorage
- const userId = localStorage.getItem('userId'); // הנח ש-USERID נשמר כמשתנה בשם 'userId'
-    
+
+// const userId = localStorage.getItem('userId'); // הנח ש-USERID נשמר כמשתנה בשם 'userId'
+  const userId=getUserFromToken().id;
     if (!userId) {
-        alert('לא נמצא מזהה משתמש ב-localStorage.');
         return;
     }
 
@@ -36,16 +36,16 @@ async function deleteAllAnswers() {
         if (response.ok) {
             const data = await response.json();
             console.log('All answers deleted for user:', data);
-            alert('כל התשובות של המשתמש נמחקו בהצלחה!');
-             window.location.href="createQuiz.html"
+            createToast('תשובות נמחקו בהצלחה', "success");
+            window.location.href="createQuiz.html"
             // כאן אפשר לחדש את הנתונים בדף או לבצע עדכון של הממשק
         } else {
             console.error('Failed to delete answers:', response.status);
-            alert('שגיאה במחיקת התשובות.');
+            createToast('שגיאה במחיקת התשובות.', "error");
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('שגיאה בחיבור לשרת.');
+        createToast('שגיאה בחיבור לשרת.', "error");
     }
 }
 
@@ -54,10 +54,12 @@ async function deleteAllAnswers() {
 
 async function deleteFromAnswer_quiz() {
     // קבלת ה-USERID מ-localStorage
- const userId = localStorage.getItem('userId'); // הנח ש-USERID נשמר כמשתנה בשם 'userId'
+//  const userId = localStorage.getItem('userId'); 
+const userId=getUserFromToken().id;
+ // הנח ש-USERID נשמר כמשתנה בשם 'userId'
     
     if (!userId) {
-        alert('לא נמצא מזהה משתמש ב-localStorage.');
+        createToast('לא נמצא מזהה משתמש ב-localStorage.', "error");
         return;
     }
 
@@ -72,15 +74,15 @@ async function deleteFromAnswer_quiz() {
         if (response.ok) {
             const data = await response.json();
             console.log('All answers deleted for user:', data);
-            alert('כל התשובות של המשתמש נמחקו בהצלחה!');
+            createToast('כל התשובות של המשתמש נמחקו בהצלחה!', "success");
             // כאן אפשר לחדש את הנתונים בדף או לבצע עדכון של הממשק
         } else {
             console.error('Failed to delete answers:', response.status);
-            alert('שגיאה במחיקת התשובות.');
+            createToast('שגיאה במחיקת התשובות.', "error");
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('שגיאה בחיבור לשרת.');
+        createToast('שגיאה בחיבור לשרת.', "error");
     }
 }
 

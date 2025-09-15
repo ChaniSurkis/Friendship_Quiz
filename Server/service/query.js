@@ -7,20 +7,14 @@ const executeQuery = async (query) => {
         let pool = await connectToDatabase();
         let result = await pool.request()
             .query(query);
-
-        console.log('Query result:', result);
-        console.log('Query result:', result.recordset); 
-        return result.recordsets
+        return result.recordset
     } catch (err) {
         console.error('Query failed! Error:', err);
     } finally {
         sql.close();
     }
 };
-
-
 const getQuery = async (table_name, limit, start, sort ="", whereIsActive = "") => {
-    console.log("in get query sort: " + sort);
     let query = `SELECT * FROM ${table_name} `;
     let result = await executeQuery(query)
     console.log(result);
@@ -28,10 +22,8 @@ const getQuery = async (table_name, limit, start, sort ="", whereIsActive = "") 
 }
 
 const getQueryByField = async (table_name,field,value,limit, start, sort ="", whereIsActive = "") => {
-    console.log("in get query sort: " + sort);
     let query = `SELECT * FROM ${table_name} WHERE ${field}=${value}`;
     let result = await executeQuery(query)
-    console.log(result);
     return result;
 }
 const getQuery2 = async (table_name, field,field1,field2, value1,value2 ,limit, start, sort, whereIsActive = "") => {
@@ -40,41 +32,20 @@ const getQuery2 = async (table_name, field,field1,field2, value1,value2 ,limit, 
     let result = await executeQuery(query)
     console.log(result);
     return result;
-}
+} 
 
-
-
-// const insertQuery = async (table_name, valuesName, values) => {
-//     const query = `INSERT INTO [dbo].${table_name}(${valuesName}) VALUES (${values})`
-//     console.log(query);
-//     const result = await executeQuery(query)
-//     return result;
-// }
 const insertQuery = async (table_name, valuesName, values) => {
     console.log("valu",valuesName)
 
-    const query = `INSERT INTO [dbo].${table_name}(${valuesName}) VALUES (${values})`
-    console.log(query);
+    const query = `INSERT INTO [dbo].${table_name}(${valuesName}) OUTPUT INSERTED.* VALUES (${values})`
+    console.log(query,"---------------------------------");
     const result = await executeQuery(query)
     return result;
 }
-
-// const insertQuery = async (table_name, valuesName, values) => {
-//     const query = `
-//         INSERT INTO [dbo].${table_name} (${valuesName}) 
-//         OUTPUT INSERTED.userId  -- מחזיר את ה-ID של המשתמש שנוסף
-//         VALUES (${values})
-//     `;
-//     console.log(query);
-//     const result = await executeQuery(query);
-//     return result; // מחזיר את ה-ID
-// }
-
 const updateQuery = async (tableName, updateValues, namefiled, valueFiled) => {
     try {
 
         const query = `UPDATE ${tableName} SET ${updateValues} WHERE ${namefiled} = ${valueFiled}`;
-        console.log(query);
         const result = await executeQuery(query)
         return { success: true };
     } catch (error) {

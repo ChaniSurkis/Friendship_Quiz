@@ -83,29 +83,26 @@ a {
 
 /* חלון מודאלי */
 .modal {
-  display: none;
   position: fixed;
-  z-index: 999;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 40px 20px;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background-color: rgba(0,0,0,0.4);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: center; /* אופקי */
+  align-items: center;     /* אנכי */
+  z-index: 999;
+  padding: 0; 
+  background-color: #333;/* אין מרווח פנימי שמזיז את המודאל */
 }
 
 .modal-content {
   background-color: white;
   padding: 30px;
   border-radius: 16px;
-  text-align: center;
-  max-width: 400px;
-  width: 100%;
+  max-width: 400px;  /* גודל קבוע מרבי */
+  width: auto;       /* לא 100% */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
+
 
 .modal-content h2 {
   font-size: 1.5rem;

@@ -7,29 +7,30 @@ async function createQuiz() {
         const data = await response.json();
         
         // השאלות נמצאות במערך הראשון בתוך data
-        const questions = data[0]; 
+        const questions = data; 
         questions.forEach(q => {
             if (typeof q.questionText === "string") {
-            q.questionText = q.questionText.replace('{שם}',localStorage.getItem('userName') || ''); 
+            q.questionText = q.questionText.replace('{שם}',getUserFromToken().name || ''); 
             }
         });
         // בדיקה אם יש שאלות
 
 
         if (!Array.isArray(questions) || questions.length === 0) {
-            alert("אין שאלות זמינות");
+            createToast("אין שאלות זמינות", "error");
             return;
         }
         if (questions.length === 0) {
-            alert("אין שאלות זמינות");
-            return;}
+            createToast("אין שאלות זמינות", "error");
+            return;
+        }
 
      
         // הצגת השאלה הראשונה
         displayQuestion(questions);
     } catch (error) {
- 
-        alert('שגיאה בטעינת השאלות מהשרת');
+
+        createToast('שגיאה בטעינת השאלות מהשרת', "error");
     }
 }
 
@@ -138,11 +139,9 @@ async function submitQuiz(questions) {
 
     if (selectedAnswer) {
         const currentQuestion = questions[currentQuestionIndex];
-        const userId = localStorage.getItem('userId'); // החלף את זה במזהה המשתמש הנכון שלך
-
-        // שליחת הנתונים לשרת
+        const userId = getUserFromToken().id;
         try {
-            const response = await fetch('http://localhost:3000/submit-answer', {
+            const response = await fetch('http://localhost:3000/questionAnswers/submit-answer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -168,7 +167,7 @@ async function submitQuiz(questions) {
 
         currentQuestionIndex++;
         if (currentQuestionIndex >= questions.length || totalAnswers >= 10) {
-            alert("סיימת לענות על השאלון");
+            createToast("סיימת לענות על השאלון", "success");
             showHomeButton(); // הצגת כפתור לעמוד הבית
             return;
         }
@@ -176,7 +175,7 @@ async function submitQuiz(questions) {
         while (answeredQuestions.includes(currentQuestionIndex)) {
             currentQuestionIndex++;
             if (currentQuestionIndex >= questions.length) {
-                alert("סיימת לענות על השאלון");
+                createToast("סיימת לענות על השאלון", "success");
                 showHomeButton(); // הצגת כפתור לעמוד הבית
                 return;
             }
@@ -184,7 +183,7 @@ async function submitQuiz(questions) {
 
         displayQuestion(questions);
     } else {
-        alert("אנא בחר תשובה לפני השליחה.");
+        createToast("אנא בחר תשובה לפני השליחה.", "warning");
     }
 }
 

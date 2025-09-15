@@ -3,22 +3,20 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+
 import { userRouter } from "./Server/routes/user.js";
 import { questionAnswersRouter } from "./Server/routes/questionAnswers.js";
 import { answersQuizRouter } from "./Server/routes/answersQuiz.js";
 import { questionsRouter } from "./Server/routes/questions.js";
 import { fileURLToPath } from 'url'; 
-
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
 
-
-
-
+dotenv.config();
 const app = express();
-// const port = process.env.PORT || 3000; 
 app.use(express.json()); 
-
 const PORT = 3000;
 app.use('/js', express.static(path.join(__dirname, 'client/js')));
 const storage = multer.diskStorage({
@@ -29,9 +27,10 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
+
 app.
 use(cors({
-  origin: '*', // מאפשר לכל מקור לגשת
+  origin: '*', 
 }));
 app.use(express.static(path.join(__dirname, 'client'))); 
 
@@ -73,28 +72,8 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-//app.use(express.urlencoded({ extended: true })); // הוספת התמחות לקבלת נתונים
-
-//app.use("/", router); // הוסף את ה-router
-
-app.use("/", userRouter);
 app.use("/user", userRouter);
-app.use("/user/:userId", userRouter);
-//app.use("/user/:passwordUser/", userRouter);
-app.use("user/email/:email",userRouter)
-//app.use("/",questionsRouter);
-app.use("/user",questionsRouter);
-
-app.use("/", questionsRouter);
 app.use("/question", questionsRouter);
-
-app.use("/", questionAnswersRouter);
 app.use("/questionAnswers", questionAnswersRouter);
-app.use("/questionAnswers/:id/:id", questionAnswersRouter);
-app.use("/questionAnswers/:id", questionAnswersRouter);
-
-app.use("/", answersQuizRouter);
 app.use("/answersQuiz", answersQuizRouter);
-app.use("/answersQuiz/:userFriendId",answersQuizRouter);
-app.use("/answersQuiz/:answersQuizId", answersQuizRouter);
 

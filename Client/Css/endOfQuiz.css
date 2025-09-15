@@ -1,40 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    margin: 0;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #FDF6F0;
+  font-family: 'Rubik', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  direction: rtl;
+  background-image: radial-gradient(circle at 20% 30%, #FFECD1 1%, transparent 30%),
+                    radial-gradient(circle at 80% 60%, #E0F7FA 1%, transparent 30%);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .result {
-    text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-    font-size: 90px; /* הגדלת גודל הפונט */
-    color: #4CAF50;
+.result h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #3A3D99;
+  font-weight: 800;
 }
 
 .emoji {
-    font-size: 170px;
+  font-size: 170px;
+  margin-bottom: 20px;
 }
 
 .home-button {
-    position: absolute; /* כדי למקם את הלחצן בצד שמאל למעלה */
-    top: 80px; /* מרחק מהחלק העליון של העמוד */
-    left: 40px; /* מרחק מהצד השמאלי של העמוד */
-    padding: 10px 20px; /* ריווח פנימי */
-    font-size: 16px; /* גודל הפונט */
-    background-color: #4CAF50; /* צבע הרקע */
-    color: white; /* צבע הטקסט */
-    border: none; /* ללא גבול */
-    border-radius: 5px; /* פינות מעוגלות */
-    cursor: pointer; /* יד עכבר על הלחצן */
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #FF9F68;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 .home-button:hover {
-    background-color: #45a049; /* שינוי צבע בריחוף */
+  background-color: #ff8443;
 }

@@ -1,28 +1,19 @@
-import { readFile, writeFile } from 'node:fs/promises';
 import {getAnswersQuiz,getCorrectAnswer,addAnswersQuiz,deleteByUserId}from '../service/answersQuiz.js'
-
 export class AnswersQuiz
 {
     getAll = async (req, res) => {
-
         try {
             let answersQuiz = await getAnswersQuiz();
-            console.log('successfully get /tmp/hello');
             res.send(answersQuiz);
-
         } catch (error) {
             console.error('there was an error:', error.message);
             res.status(500).send(error.message);
-
         }
-
 }
-getByFriendId = async(req,res) =>{
-
+getByFriendId = async(req,res) => {
     try{
-        let frienAnswers = await getCorrectAnswer(req.params.userFriendId);
-        console.log('successfully get /tmp/hello');
-        res.send(frienAnswers);
+        let friendAnswers = await getCorrectAnswer(req.params.userFriendId);
+        res.send(friendAnswers);
     }
     catch (error) {
         console.error('there was an error:', error.message);
@@ -34,9 +25,7 @@ getByFriendId = async(req,res) =>{
 add = async(req,res)=>{
     try{
         let newAnswersQuiz = req.body;
-        console.log(newAnswersQuiz);
         let answersQuiz = await addAnswersQuiz(newAnswersQuiz);
-        console.log(answersQuiz);
         res.send(answersQuiz);
     }
     catch(error){
@@ -47,10 +36,7 @@ add = async(req,res)=>{
 delete = async (req, res) => {
     try {
         const userId = req.params.userId;
-        console.log("userId delete" , userId)
-        console.log(`Deleting user with id: ${userId}`);
-        let result = await deleteByUserId(userId); 
-        console.log(result);
+        let result = await deleteByUserId(userId);
         if (result.success) {
             res.send({ message: `User with id ${userId} deleted successfully` });
         } else {

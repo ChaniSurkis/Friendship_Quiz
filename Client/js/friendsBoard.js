@@ -5,7 +5,7 @@ const nameFriend=[]
 async function bringI() {
     try {
      
-        const response = await fetch(`http://localhost:3000/answersQuiz/${localStorage.getItem('userId')}`, {
+        const response = await fetch(`http://localhost:3000/answersQuiz/${getUserFromToken().id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,12 +17,12 @@ async function bringI() {
             answerUser = await response.json();
            
         } else {
-          
-            alert('שגיאה בקבלת נתוני המשתמשים מהשרת.');
+
+            createToast('שגיאה בקבלת נתוני המשתמשים מהשרת.', "error");
             return;
         }
 
-        const answer = answerUser[0];
+        const answer = answerUser;
         const numCorrect = [];
         const nameFriend = [];
 
@@ -45,7 +45,7 @@ async function bringI() {
         
     } catch (error) {
         console.error('Error:', error);
-        alert('שגיאה בחיבור לשרת');
+        createToast('שגיאה בחיבור לשרת', "error");
     }
 }
 
@@ -67,21 +67,21 @@ async function bringNames(userid) {
             const users = await response.json();
         
             
-            // בדיקה אם users[0] קיים ומכיל userName
-            if (users[0][0] && users[0][0].userName) {
+    
+            if (users[0] && users[0].userName) {
              
-                return users[0][0].userName;
+                return users[0].userName;
             } else {
                
                 return "No username found";
             }
         } else {
-         
-            alert('שגיאה בקבלת נתוני המשתמשים מהשרת.');
+
+            createToast('שגיאה בקבלת נתוני המשתמשים מהשרת.', "error");
         }
     } catch (error) {
-     
-        alert('שגיאה בחיבור לשרת');
+
+        createToast('שגיאה בחיבור לשרת.', "error");
     }
     return "ch"; // ערך ברירת מחדל במידה ויש שגיאה
 }
